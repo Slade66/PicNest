@@ -6,6 +6,7 @@ import com.slade66.picnest.exception.ErrorCode;
 import com.slade66.picnest.exception.ThrowUtils;
 import com.slade66.picnest.model.dto.UserLoginRequest;
 import com.slade66.picnest.model.dto.UserRegisterRequest;
+import com.slade66.picnest.model.entity.User;
 import com.slade66.picnest.model.vo.LoginUserVO;
 import com.slade66.picnest.service.UserService;
 import org.springframework.web.bind.annotation.*;
@@ -43,6 +44,12 @@ public class UserController {
         String userPassword = userLoginRequest.getUserPassword();
         LoginUserVO loginUserVO = userService.userLogin(userAccount, userPassword, request);
         return ResultUtils.success(loginUserVO);
+    }
+
+    @GetMapping("/get/login")
+    public BaseResponse<LoginUserVO> getLoginUser(HttpServletRequest request) {
+        User loginUser = userService.getLoginUser(request);
+        return ResultUtils.success(userService.getLoginUserVO(loginUser));
     }
 
 }

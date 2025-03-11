@@ -52,5 +52,10 @@ public class UserController {
         return ResultUtils.success(userService.getLoginUserVO(loginUser));
     }
 
-}
+    @PostMapping("/logout")
+    public BaseResponse<Boolean> userLogin(HttpServletRequest request) {
+        boolean result = userService.userLogout(request);
+        return ResultUtils.success(result);
+    }
 
+}

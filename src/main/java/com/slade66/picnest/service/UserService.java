@@ -2,6 +2,9 @@ package com.slade66.picnest.service;
 
 import com.slade66.picnest.model.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.slade66.picnest.model.vo.LoginUserVO;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author slade
@@ -13,5 +16,9 @@ public interface UserService extends IService<User> {
     long userRegister(String userAccount, String userPassword, String checkPassword);
 
     String getEncryptPassword(String userPassword);
+
+    LoginUserVO userLogin(String userAccount, String userPassword, HttpServletRequest request);
+
+    LoginUserVO getLoginUserVO(User user);
 
 }

@@ -1,10 +1,14 @@
 package com.slade66.picnest.service;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.slade66.picnest.model.dto.user.UserQueryRequest;
 import com.slade66.picnest.model.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.slade66.picnest.model.vo.LoginUserVO;
+import com.slade66.picnest.model.vo.UserVO;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * @author slade
@@ -21,8 +25,14 @@ public interface UserService extends IService<User> {
 
     LoginUserVO getLoginUserVO(User user);
 
+    UserVO getUserVO(User user);
+
+    List<UserVO> getUserVOList(List<User> userList);
+
     User getLoginUser(HttpServletRequest request);
 
     boolean userLogout(HttpServletRequest request);
+
+    QueryWrapper<User> getQueryWrapper(UserQueryRequest userQueryRequest);
 
 }

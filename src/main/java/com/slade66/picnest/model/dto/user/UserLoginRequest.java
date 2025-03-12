@@ -1,4 +1,4 @@
-package com.slade66.picnest.model.dto;
+package com.slade66.picnest.model.dto.user;
 
 import lombok.Data;
 
